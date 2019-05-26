@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
-import { postData } from '../../utils/getData';
+import { updateData } from '../../utils/getData';
 import './Task.css';
 
 export default class Task extends Component {
@@ -27,16 +29,21 @@ export default class Task extends Component {
 
   updateMessage = (event) => {
     event.preventDefault();
-    const { message } = this.state;
-    postData('http://localhost:8080/addTask', message)
+    const { task, taskId } = this.state;
+    updateData('http://localhost:8080/updateTask', taskId, task)
       .then(({ data }) => {
-        if (data.inserted === true) {
-          const { tasks } = this.state;
-          const { task, taskId } = data;
-          this.setState({ tasks: [...tasks, { taskId, task }] });
+        if (data.updated === true) {
+          this.setState({ task: data.task });
+        } else {
+          const { task } = this.props;
+          this.setState({ task });
         }
+      },
+      () => {
+        const { task } = this.props;
+        this.setState({ task });
       });
-    this.setState({ message: '' });
+    this.setState({ readonly: true });
   };
 
   render() {
@@ -54,7 +61,7 @@ export default class Task extends Component {
         <br />
         {!readonly
         && (
-        <button className="editTaskButton" type="submit" onClick={this.makeEditable}>
+        <button className="editTaskButton" type="submit" onClick={this.updateMessage}>
             Update Task
         </button>
         )
