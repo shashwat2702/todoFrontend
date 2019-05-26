@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-shadow */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { updateData } from '../../utils/getData';
 import './Task.css';
 
@@ -83,3 +83,9 @@ export default class Task extends Component {
     );
   }
 }
+
+Task.propTypes = {
+  task: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
