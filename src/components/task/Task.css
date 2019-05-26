@@ -1,4 +1,33 @@
 .individualTask {
+    width:100%;
+}
+.existingTodoTask {
+    background-color: #222222;
+    color: white;
+    border: 0;
+    font-size: 1.5rem;
+    outline: none;
     border-bottom: 1px solid white;
     padding: 0.5rem 0;
+    width: 100%;
+}
+.editTaskButton {
+    background-color: dodgerblue;
+    width: 12rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.2rem;
+    margin: 1rem 1rem 0 0;
+    font-size: 1.5rem;
+    color: white;
+}
+.removeTaskButton {
+    background-color: dodgerblue;
+    width: 12rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.2rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: white;
 }

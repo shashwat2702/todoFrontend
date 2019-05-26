@@ -61,6 +61,9 @@ export default class Homepage extends Component {
             Add Task
           </button>
         </form>
+        <div className="headingTodo">
+          ALL THE TODO TASKS
+        </div>
         <div className="listOfTasks">
           {tasks.map(({ task, taskId }) => (
             <Task task={task} key={taskId} />
