@@ -66,7 +66,7 @@ export default class Homepage extends Component {
         </div>
         <div className="listOfTasks">
           {tasks.map(({ task, taskId }) => (
-            <Task task={task} key={taskId} />
+            <Task task={task} key={taskId} id={taskId} />
           ))}
         </div>
       </div>

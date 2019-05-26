@@ -1,5 +1,5 @@
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import { postData } from '../../utils/getData';
 import './Task.css';
 
 export default class Task extends Component {
@@ -8,6 +8,7 @@ export default class Task extends Component {
     this.state = {
       readonly: true,
       task: props.task,
+      taskId: props.id,
     };
   }
 
@@ -24,21 +25,47 @@ export default class Task extends Component {
     });
   }
 
+  updateMessage = (event) => {
+    event.preventDefault();
+    const { message } = this.state;
+    postData('http://localhost:8080/addTask', message)
+      .then(({ data }) => {
+        if (data.inserted === true) {
+          const { tasks } = this.state;
+          const { task, taskId } = data;
+          this.setState({ tasks: [...tasks, { taskId, task }] });
+        }
+      });
+    this.setState({ message: '' });
+  };
+
   render() {
-    const { readonly, task } = this.state;
+    const { readonly, task, taskId } = this.state;
     return (
       <div className="individualTask">
         <input
           value={task}
           readOnly={readonly}
-          className="existingTodoTask"
+          className={readonly ? 'existingTodoTask' : 'editableTodoTask'}
           name="task"
+          id={taskId}
           onChange={this.handleInputChange}
         />
         <br />
+        {!readonly
+        && (
+        <button className="editTaskButton" type="submit" onClick={this.makeEditable}>
+            Update Task
+        </button>
+        )
+        }
+        {readonly
+        && (
         <button className="editTaskButton" type="submit" onClick={this.makeEditable}>
             Edit Task
         </button>
+        )
+        }
         <button className="removeTaskButton" type="submit" onClick={this.sendMessage}>
             Remove Task
         </button>

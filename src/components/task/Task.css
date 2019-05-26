@@ -3,6 +3,16 @@
 }
 .existingTodoTask {
     background-color: #222222;
+    color: gray;
+    border: 0;
+    font-size: 1.5rem;
+    outline: none;
+    border-bottom: 1px solid white;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+.editableTodoTask {
+    background-color: #222222;
     color: white;
     border: 0;
     font-size: 1.5rem;

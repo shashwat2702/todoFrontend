@@ -6,4 +6,15 @@ const postData = (url, task) => axios({
   url,
   data: task,
 });
-export { getData, postData };
+const updateData = (url, id, task) => axios({
+  method: 'put',
+  url: `${url}/${id}`,
+  data: task,
+});
+const deleteData = (url, id) => axios({
+  method: 'delete',
+  url: `${url}/${id}`,
+});
+export {
+  getData, postData, updateData, deleteData,
+};
