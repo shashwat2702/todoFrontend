@@ -1,3 +1,17 @@
+## About this App
+
+This is a very basic Todo App made with react. It supports all the CRUD operations.
+In order to run this application you will also need a backend, which I have as a separate repository.
+[Click here for the backend repo](https://github.com/shashwat2702/todoBackend)
+
+## Instructions to run this project
+
+1. Clone this repo.
+2. Navigate to the project directory inside any terminal.
+3. Install all the dependencies using: `npm install`.
+4. Make sure the backend for this is properly setup and running.
+5. Use `npm start` to start this application.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
