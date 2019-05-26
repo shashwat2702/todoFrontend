@@ -27,7 +27,7 @@ export default class Task extends Component {
     });
   }
 
-  updateMessage = (event) => {
+  updateTask = (event) => {
     event.preventDefault();
     const { task, taskId } = this.state;
     updateData('http://localhost:8080/updateTask', taskId, task)
@@ -63,7 +63,7 @@ export default class Task extends Component {
           <br />
           {!readonly
         && (
-        <button className="editTaskButton" type="submit" onClick={this.updateMessage}>
+        <button className="editTaskButton" type="submit" onClick={this.updateTask}>
             Update Task
         </button>
         )

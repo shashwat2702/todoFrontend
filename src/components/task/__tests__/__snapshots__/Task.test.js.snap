@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task snapshot should render correctly 1`] = `
+<div
+  className="individualTask"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="existingTodoTask"
+      id={1}
+      name="task"
+      onChange={[Function]}
+      readOnly={true}
+      value="Create Todo"
+    />
+    <br />
+    <button
+      className="editTaskButton"
+      onClick={[Function]}
+      type="submit"
+    >
+      Edit Task
+    </button>
+    <button
+      className="removeTaskButton"
+      id={1}
+      onClick={[MockFunction]}
+      type="submit"
+    >
+      Remove Task
+    </button>
+  </form>
+</div>
+`;
