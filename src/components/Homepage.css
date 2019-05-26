@@ -1,6 +1,44 @@
 .homePageContainer {
     display: flex;
     flex-direction: column;
-    flex:1;
+    flex: 1;
     padding: 2rem;
+    min-width: 700px;
+    align-items: center;
+}
+.addTaskContainer {
+    width: 100%;
+}
+.addTodoInputField {
+    background-color: rgb(30, 31, 31);
+    border: 0;
+    border-bottom: 2px solid #9a98ad;
+    width: 100%;
+    height: 3rem;
+    font-size: 2rem;
+    color: white;
+    margin-top: 4rem;
+    outline-color: antiquewhite;
+    padding: 0.5rem;
+}
+.addTaskButton {
+    background-color: dodgerblue;
+    width: 10rem;
+    height: 4rem;
+    border: 0;
+    border-radius: 0.2rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: white;
+}
+.listOfTasks {
+    margin: 2rem;
+    border: 2px solid whitesmoke;
+    border-radius: 0.5rem;
+    min-height: 400px;
+    padding: 2rem;
+    width: 100%;
+    color: white;
+    width: 100%;
+    font-size: 2rem; 
 }
