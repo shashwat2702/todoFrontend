@@ -48,34 +48,37 @@ export default class Task extends Component {
 
   render() {
     const { readonly, task, taskId } = this.state;
+    const { onDelete } = this.props;
     return (
       <div className="individualTask">
-        <input
-          value={task}
-          readOnly={readonly}
-          className={readonly ? 'existingTodoTask' : 'editableTodoTask'}
-          name="task"
-          id={taskId}
-          onChange={this.handleInputChange}
-        />
-        <br />
-        {!readonly
+        <form onSubmit={(e) => { e.preventDefault(); }}>
+          <input
+            value={task}
+            readOnly={readonly}
+            className={readonly ? 'existingTodoTask' : 'editableTodoTask'}
+            name="task"
+            id={taskId}
+            onChange={this.handleInputChange}
+          />
+          <br />
+          {!readonly
         && (
         <button className="editTaskButton" type="submit" onClick={this.updateMessage}>
             Update Task
         </button>
         )
         }
-        {readonly
+          {readonly
         && (
         <button className="editTaskButton" type="submit" onClick={this.makeEditable}>
             Edit Task
         </button>
         )
         }
-        <button className="removeTaskButton" type="submit" onClick={this.sendMessage}>
+          <button className="removeTaskButton" id={taskId} type="submit" onClick={onDelete}>
             Remove Task
-        </button>
+          </button>
+        </form>
       </div>
     );
   }
