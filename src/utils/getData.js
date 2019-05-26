@@ -1,9 +1,9 @@
 const axios = require('axios');
 
 const getData = url => axios.get(url);
-const postData = (url, data) => axios({
+const postData = (url, task) => axios({
   method: 'post',
   url,
-  data,
+  data: task,
 });
 export { getData, postData };

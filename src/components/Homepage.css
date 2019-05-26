@@ -33,8 +33,6 @@
 }
 .listOfTasks {
     margin: 2rem;
-    border: 2px solid whitesmoke;
-    border-radius: 0.5rem;
     min-height: 400px;
     padding: 2rem;
     width: 100%;

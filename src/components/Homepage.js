@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Homepage.css';
-import { getData } from '../utils/getData';
+import Task from './task/Task';
+import { getData, postData } from '../utils/getData';
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -32,13 +33,19 @@ export default class Homepage extends Component {
   sendMessage = (event) => {
     event.preventDefault();
     const { message } = this.state;
-    console.log(message);
+    postData('http://localhost:8080/addTask', message)
+      .then(({ data }) => {
+        if (data.inserted === true) {
+          const { tasks } = this.state;
+          const { task, taskId } = data;
+          this.setState({ tasks: [...tasks, { taskId, task }] });
+        }
+      });
     this.setState({ message: '' });
   };
 
   render() {
     const { message, tasks } = this.state;
-    console.log(tasks);
     return (
       <div className="homePageContainer">
         <form className="addTaskContainer" onSubmit={(e) => { e.preventDefault(); }}>
@@ -55,7 +62,9 @@ export default class Homepage extends Component {
           </button>
         </form>
         <div className="listOfTasks">
-        dfnbsjbfkjsgb
+          {tasks.map(({ task, taskId }) => (
+            <Task task={task} key={taskId} />
+          ))}
         </div>
       </div>
     );
