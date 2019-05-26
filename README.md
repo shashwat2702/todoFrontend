@@ -7,7 +7,7 @@ In order to run this application you will also need a backend, which I have as a
 ## Instructions to run this project
 
 1. Clone this repo.
-2. Navigate to the project directory inside any terminal.
+2. Navigate to the project directory `todoFrontend` inside any terminal.
 3. Install all the dependencies using: `npm install`.
 4. Make sure the backend for this is properly setup and running.
 5. Use `npm start` to start this application.
