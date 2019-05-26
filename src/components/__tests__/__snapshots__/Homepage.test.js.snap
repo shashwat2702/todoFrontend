@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homepage snapshot should render correctly 1`] = `
+<div
+  className="homePageContainer"
+>
+  <form
+    className="addTaskContainer"
+    onSubmit={[Function]}
+  >
+    <input
+      className="addTodoInputField"
+      name="newTask"
+      onChange={[Function]}
+      placeholder="What needs to be done?"
+      type="text"
+      value=""
+    />
+    <button
+      className="addTaskButton"
+      onClick={[Function]}
+      type="submit"
+    >
+      Add Task
+    </button>
+  </form>
+  <div
+    className="headingTodo"
+  >
+    ALL THE TODO TASKS
+  </div>
+  <div
+    className="listOfTasks"
+  />
+</div>
+`;
